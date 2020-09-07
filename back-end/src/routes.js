@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const route = express.Router();
+const CategoryController = require("./controllers/CategoryController");
 
-route.get('/', (req, res) => {
-    res.json('deu certo');
-});
+route.post('/category', CategoryController.store);
+route.get('/categories', CategoryController.index);
 
 module.exports = route;
