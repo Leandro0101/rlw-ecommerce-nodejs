@@ -42,7 +42,7 @@
    
 =>yarn add express
   trabalhar com as rotas)
-# Criação das tabelas
+
 
 </body>
 </html>
