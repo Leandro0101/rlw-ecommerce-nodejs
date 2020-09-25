@@ -30,7 +30,7 @@
 -criar uma pasta para rodar o servidor
 -dentro dessa pasta utiliza o comando pra instalar arquivo de dependência 
 => yarn init
--após cria a pasta src dentro dela cria um arquivo server.ts(configuração de rotas)
+-após cria a pasta src dentro dela cria um arquivo server.js(configuração de rotas)
 -se tiver utilizando typescript instalar ele na 
 -aplicação
 => yarn add typescript -D
