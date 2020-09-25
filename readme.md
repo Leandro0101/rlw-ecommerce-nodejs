@@ -14,10 +14,10 @@
 <body>
 <h1>Rlw-ecommerce-nodejs</h1>
 
-<!-- ## Regra de negócio e funcionalidades
- <img  src="front-end/public/imagens/diagrama.jpeg"></img>
+## Regra de negócio e funcionalidades
+ <img  src="web/src/assets/imagens/diagrama.jpeg"></img>
 ## Mapa do site
-<img  src="front-end/public/imagens/SiteMap.jpeg"></img> -->
+<img  src="web/src/assets/imagens/SiteMap.jpeg"></img>
 
 ## Banco de dados
     MYSQL
