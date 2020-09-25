@@ -39,7 +39,6 @@
 -instalar dependencia do ts-node
 => yarn add ts-node-dev D 
    tipo um devtolls
-   
 =>yarn add express
   trabalhar com as rotas)
 
