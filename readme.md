@@ -14,10 +14,10 @@
 <body>
 <h1>Rlw-ecommerce-nodejs</h1>
 
-<!-- ## Regra de negócio e funcionalidades
- <img  src="front-end/public/imagens/diagrama.jpeg"></img>
+## Regra de negócio e funcionalidades
+ <img  src="web/src/assets/imagens/diagrama.jpeg"></img>
 ## Mapa do site
-<img  src="front-end/public/imagens/SiteMap.jpeg"></img> -->
+<img  src="web/src/assets/imagens/SiteMap.jpeg"></img>
 
 ## Banco de dados
     MYSQL
@@ -30,7 +30,7 @@
 -criar uma pasta para rodar o servidor
 -dentro dessa pasta utiliza o comando pra instalar arquivo de dependência 
 => yarn init
--após cria a pasta src dentro dela cria um arquivo server.ts(configuração de rotas)
+-após cria a pasta src dentro dela cria um arquivo server.js(configuração de rotas)
 -se tiver utilizando typescript instalar ele na 
 -aplicação
 => yarn add typescript -D
@@ -39,7 +39,6 @@
 -instalar dependencia do ts-node
 => yarn add ts-node-dev D 
    tipo um devtolls
-   
 =>yarn add express
   trabalhar com as rotas)
 
