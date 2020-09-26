@@ -1,7 +1,6 @@
 const express =  require("express");
 const app = express();
 const routes = require("./routes");
-const User = require("./models/User");
 require("./database")
 app.use(express.json());
 app.use('/', routes);

@@ -1,7 +1,7 @@
 const express = require("express");
 const route = express.Router();
-const AddressController = require("./controllers/AddressController");
-const UserController = require("./controllers/UserController");
+const AddressController = require("./app/controllers/AddressController");
+const UserController = require("./app/controllers/UserController");
 
 route.post("/users", UserController.store);
 
