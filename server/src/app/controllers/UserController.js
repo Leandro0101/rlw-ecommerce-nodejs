@@ -1,19 +1,22 @@
 const User = require("../models/User");
-const bcrypt = require("bcryptjs");
 const UserSchema = require("../validations/UserSchema");
+
 module.exports = {
     async store(req, res) {
-        const { name, email, admin } = req.body;
 
-        let { password } = req.body;
+        if (!await UserSchema.isValid(req.body)) {
+            return res.status(400).json({ error: 'Validation fails' });
+        }
 
-        const salt = bcrypt.genSaltSync(10);
+        const { name, email, admin, password } = req.body;
+        const { id } = await User.create({ name, email, admin, password });
 
-        password = bcrypt.hashSync(password, salt);
-        const user = await User.create({ name, email, admin, password });
+        const userExist = await User.findOne({ where: { email } });
 
-        user.password = undefined;
+        if(userExist)
+            return res.status(200).json("User already exists!");
 
-        return res.status(201).json(user);
+        return res.status(201).json({ id, name, email, admin });
+
     }
 }
