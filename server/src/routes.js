@@ -8,5 +8,6 @@ route.post("/users", UserController.store);
 route.post("/users/:user_id/addresses", AddressController.store);
 
 route.post("/categories",CategoryController.create);
+route.get("/categories",CategoryController.index);
 
 module.exports = route;
