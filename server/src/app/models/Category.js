@@ -7,7 +7,13 @@ class Category extends Model {
             slugy: DataTypes.STRING,
             description: DataTypes.TEXT,
         }, { sequelize })
+        this.addHook("beforeSave", async (category) => {
+            if (category.slug) {
+              category.slug = slugify(category.slug);
+            }
+          });
     }
+    
     
 }
 
