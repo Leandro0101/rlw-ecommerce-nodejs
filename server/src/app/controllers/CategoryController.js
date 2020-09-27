@@ -7,13 +7,8 @@ module.exports ={
     async create(req,res){
         const {name,description} = req.body;
     
-         Category.create({
-             name:name,
-             slug:slugify(name),
-             description:description
-         }).then(()=>{
-             res.status(201);
-         })
+        const category = await Category.create({name,slug:slugify(name),description});
+        return res.status(201).json(category);
 
 
     }
