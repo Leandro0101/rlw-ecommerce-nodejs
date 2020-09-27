@@ -11,15 +11,15 @@ module.exports = {
       },
       code: {
         type: Sequelize.STRING,
-        allowNull:false,
+        allowNull: false,
       },
       rate: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      expireIn: {
+      expire_in: {
         type: Sequelize.DATE,
-        allowNull: true,
+        allowNull: false,
       },
       limite: {
         type: Sequelize.INTEGER,
