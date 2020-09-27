@@ -9,7 +9,10 @@ const CategoryController = require("./app/controllers/CategoryController");
 route.post("/users", UserController.store);
 route.post("/users/:user_id/addresses", AddressController.store);
 
+route.get("/promotions", PromotionController.index);
 route.post("/promotions", PromotionController.store);
+route.patch("/promotions/:id", PromotionController.update);
+route.delete("/promotions/:id", PromotionController.delete);
 
 route.post("/categories",CategoryController.create);
 route.get("/categories",CategoryController.index);

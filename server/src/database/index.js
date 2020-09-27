@@ -7,7 +7,7 @@ const Promotion = require("../app/models/Promotion");
 
 const connection = new Sequelize(dbConfig);
 
-const models = [ User, Category, Address];
+const models = [ User, Category, Address, Promotion];
 
 models.map(model => model.init(connection));
 models.map(model => model.associate && model.associate(connection.models));
