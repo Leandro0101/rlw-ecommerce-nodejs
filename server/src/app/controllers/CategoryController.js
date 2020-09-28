@@ -9,5 +9,7 @@ module.exports ={
     
         const category = await Category.create({name,slug:slugify(name),description});
         return res.status(201).json(category);
+
+
     }
 }

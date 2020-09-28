@@ -1,8 +1,8 @@
-const Sequelize = require("sequelize");
-const dbConfig = require("../config/database");
-const User = require("../app/models/User");
-const Category = require("../app/models/Category");
-const Address = require("../app/models/Address");
+import Sequelize from "sequelize";
+import dbConfig from "../config/database";
+import User from "../app/models/User";
+import Category from "../app/models/Category";
+import Address from "../app/models/Address";
 const connection = new Sequelize(dbConfig);
 
 const models = [ User, Category, Address];
@@ -10,4 +10,4 @@ const models = [ User, Category, Address];
 models.map(model => model.init(connection));
 models.map(model => model.associate && model.associate(connection.models));
 
-module.exports = connection;
+export default connection;

@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize";
 
-class Address extends Model {
+export default class Address extends Model {
     static init(sequelize) {
         super.init({
             zipcode: DataTypes.STRING,
@@ -15,5 +15,3 @@ class Address extends Model {
         this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
     }
 }
-
-module.exports = Address;
