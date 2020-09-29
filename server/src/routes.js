@@ -9,7 +9,7 @@ import auth from './app/middlewares/auth';
 
 const route = express.Router();
 
-route.post("/users", auth, admin, UserController.store);
+route.post("/users", UserController.store);
 route.post("/users/:user_id/addresses", AddressController.store);
 
 route.get("/promotions", PromotionController.index);
