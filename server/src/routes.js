@@ -4,12 +4,12 @@ import UserController from "./app/controllers/UserController";
 import AuthController from "./app/controllers/AuthController";
 import CategoryController from "./app/controllers/CategoryController";
 import PromotionController from "./app/controllers/PromotionController";
+import admin from "./app/middlewares/admin";
 import auth from './app/middlewares/auth';
 
 const route = express.Router();
 
-
-route.post("/users", auth, UserController.store);
+route.post("/users", auth, admin, UserController.store);
 route.post("/users/:user_id/addresses", AddressController.store);
 
 route.get("/promotions", PromotionController.index);

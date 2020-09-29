@@ -19,11 +19,11 @@ export default {
         if (!await user.checkPassword(password))
             return res.status(401).json({ error: "email or password incorrects" });;
 
-        const { id, name, email } = user;
+        const { id, name, email, admin } = user;
 
         return res.status(200).json({
             user: { id, name, email },
-            token: generateToken(id)
+            token: generateToken({ id, admin })
         });
 
     }
