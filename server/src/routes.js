@@ -19,6 +19,8 @@ route.delete("/promotions/:id", PromotionController.delete);
 
 route.post("/categories",CategoryController.create);
 route.get("/categories",CategoryController.index);
+route.patch("/categories/:id", CategoryController.update);
+route.delete("/categories/:id", CategoryController.delete);
 
 route.post("/authentication", AuthController.authentication);
 
