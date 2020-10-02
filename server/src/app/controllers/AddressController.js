@@ -11,6 +11,7 @@ export default {
             return res.status(404).json({ err: "User not found" });
 
         const address = await Address.create({ zipcode, uf, city, district, street, number, user_id });
+        
         return res.status(201).json(address);
     }
 }

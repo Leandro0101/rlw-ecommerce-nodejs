@@ -2,6 +2,8 @@ import jwt, { decode } from "jsonwebtoken";
 import authConfig from "../../config/auth.json";
 export default (req, res, next) => {
 
+    console.log(req.user);
+
     const authHeader = req.headers.authorization;
 
     if (!authHeader)
@@ -19,7 +21,11 @@ export default (req, res, next) => {
 
     jwt.verify(token, authConfig.secret, (error, decoded) => {
         if (error) return res.status(401).json({ error: "token invalid" });
-        req.user = decoded.params;
+
+        const { id, admin } = decoded.params;
+
+        req.user = { id, admin, token };
+
         next();
     });
 
