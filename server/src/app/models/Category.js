@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize";
 
-class Category extends Model {
+export default class Category extends Model {
     static init(sequelize) {
         super.init({
             name: DataTypes.STRING(50),
@@ -12,4 +12,3 @@ class Category extends Model {
     
 }
 
-module.exports = Category;
