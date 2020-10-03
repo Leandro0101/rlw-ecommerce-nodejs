@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Header from '../../Components/Header';
+
 import about1 from '../../assets/imagens/about1.png';
 import about2 from '../../assets/imagens/about2.png';
 import './styles.css';
@@ -7,9 +9,8 @@ import './styles.css';
 function About() {
     return (
         <div className="container-fluid">
-            <header className="header row">
-                <h1>Sobre nós</h1>
-            </header>
+
+            <Header title="Sobre nós" />
 
             <section className="section-about row mt-2">
                 <div className="bio col-md-6">
