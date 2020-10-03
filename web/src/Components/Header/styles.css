@@ -1,0 +1,11 @@
+.header {
+    background: rgb(9, 7, 73);
+    background: linear-gradient(90deg, rgba(9, 7, 73, 1) 82%, rgba(0, 58, 175, 1) 82%);
+    padding: 2.5rem 1.2rem 2.5rem 2.2rem;
+}
+
+.header h1 {
+    font-family: futura, sans-serif;
+    font-weight: 700;
+    color: var(--color-text-base);
+}
