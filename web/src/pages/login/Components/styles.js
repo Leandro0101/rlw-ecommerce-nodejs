@@ -25,9 +25,11 @@ export const Button = styled.button`
   box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
 `
 export const Input = styled.input`
-  width: 100%;
-  border: none;
-  border-radius: 0.2rem;
-  padding: 5px 3px 5px 3px;
-  font-family: futura, sans-serif;
+  /* .styleInput{ */
+    width: 100%;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 5px 3px 5px 3px;
+    font-family: futura, sans-serif;
+  /* } */
 `

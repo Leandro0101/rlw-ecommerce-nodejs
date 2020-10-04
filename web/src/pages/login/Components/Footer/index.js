@@ -5,7 +5,7 @@ import * as Styled from '../styles';
 function footer(props) {
   return (
     <Styled.Footer>
-        <Styled.Button>{props.action}</Styled.Button>
+        <Styled.Button type="submit">{props.action}</Styled.Button>
         <Styled.A href="">Esqueci a senha</Styled.A>
     </Styled.Footer>
   );
