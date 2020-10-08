@@ -10,11 +10,12 @@ import auth from './app/middlewares/auth';
 const route = express.Router();
 
 route.post("/users", UserController.store);
-route.patch("/users", UserController.update);
-route.delete("/users", UserController.destroy);
-route.get("/user", UserController.single);
+route.patch("/users", auth, UserController.update);
+route.delete("/users", auth, UserController.destroy);
+route.get("/user", auth, UserController.show);
 
 route.post("/users/:user_id/addresses", AddressController.store);
+route.get("/users/address", auth, AddressController.show);
 
 route.post("/authentication", AuthController.store);
 

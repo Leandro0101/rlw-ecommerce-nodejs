@@ -26,6 +26,6 @@ export default {
             user: { id, name, email, token: generateToken({ id, admin }) },
         });
 
-    }
+    },
 }
 

@@ -1,4 +1,4 @@
-const Yup = require("yup");
+import * as Yup from "yup";
 
 const UserSchema = Yup.object().shape({
     name: Yup.string().max(50).required(),
@@ -6,4 +6,4 @@ const UserSchema = Yup.object().shape({
     password: Yup.string().min(8).required(),
 });
 
-module.exports = UserSchema;
+export default UserSchema;

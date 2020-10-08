@@ -1,5 +1,6 @@
 import User from "../models/User";
-import UserSchema from "../validations/UserSchema";
+import UserSchema from "../validations/user";
+import SessionController from "./SessionController";
 
 export default {
     async store(req, res) {
@@ -45,11 +46,13 @@ export default {
 
         await User.destroy({ where: { id: req.user.id } });
 
+        SessionController.destroy(req.user.token);
+
         return res.status(200).json();
 
     },
 
-    async single(req, res) {
+    async show(req, res) {
 
         const user = await User.findByPk(req.user.id);
 
