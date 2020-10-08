@@ -1,7 +1,7 @@
-const Promotion = require("../models/Promotion");
-const promotionValidation = require("../validations/promotion");
+import Promotion from "../models/Promotion";
+import promotionValidation from "../validations/promotion";
 
-module.exports = {
+export default  {
     async index(req, res) {
         const { page = 1 } = req.query;
 

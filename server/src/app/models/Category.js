@@ -8,7 +8,9 @@ export default class Category extends Model {
             description: DataTypes.TEXT,
         }, { sequelize })
     }
-    
+    static associate(models){
+        this.belongsTo(models.Category, { foreignKey: "id",   as: "category" });
+   }
     
 }
 

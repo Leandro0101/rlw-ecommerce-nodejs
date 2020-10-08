@@ -1,17 +1,24 @@
 import Category from "../models/Category";
 import slugify from "slugify";
+
 import categoryValidation from "../validations/category";
 
 export default{
     async create(req,res){
         const { name,description } = req.body;
 
+        const categoryExist = await  Category.findOne({where:{name}});
+
+        if(categoryExist){
+            return res.status(200).json("category already exists!");
+        }
+
         if (!(await categoryValidation.isValid(req.body))) {
            return res.status(405).json({ error: 'Validation fails'});
         };
-    
+
         const category = await Category.create({name,slug:slugify(name),description});
-        return res.status(201).json(category);
+        return res.status(201).json(category)
 
     },
     async index(req,res){
