@@ -1,4 +1,5 @@
 import Address from "../models/Address";
+import { update } from "../models/Promotion";
 import User from "../models/User";
 import SchemaAddress from "../validations/address";
 
@@ -32,5 +33,9 @@ export default {
     		return res.status(404).json({ error: "Resource not found" });
 
     	return res.status(200).json(user.addresses);
+    },
+
+    async update(req, res){
+        
     }
 }

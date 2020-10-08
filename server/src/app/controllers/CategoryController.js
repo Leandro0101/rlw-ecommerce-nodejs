@@ -4,7 +4,7 @@ import categoryValidation from "../validations/category";
 
 export default{
     async create(req,res){
-        const {name,description} = req.body;
+        const { name,description } = req.body;
 
         if (!(await categoryValidation.isValid(req.body))) {
            return res.status(405).json({ error: 'Validation fails'});

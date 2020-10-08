@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("favorite-product-users", {
+    return queryInterface.createTable('favorites-products-users', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -12,16 +12,16 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "users", key: "id" },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"  
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE '
       },
       product_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "products", key: "id" },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"  
+        references: { model: 'products', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE '
       },
       created_at: {
         type: Sequelize.DATE,
@@ -31,10 +31,11 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
+
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("favorite-product-users");
+    return queryInterface.dropTable('favorites-products-users');
   }
 };
