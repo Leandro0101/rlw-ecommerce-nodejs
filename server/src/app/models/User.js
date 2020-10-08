@@ -18,9 +18,7 @@ export default class User extends Model {
         user.password = await bcrypt.hash(user.password, 10);
       }
     });
-
   }
-
   static associate(models) {
     this.hasMany(models.Address, { foreignKey: "user_id", as: "addresses" });
   }
