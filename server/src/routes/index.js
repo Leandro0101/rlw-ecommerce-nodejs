@@ -6,26 +6,25 @@ import routerPromotion from './promotion';
 import routerFavoriteProduct from './FavoriteProduct';
 import routerAuth from './auth';
 import auth from '../app/middlewares/auth';
-import adm from '../app/middlewares/admin';
 import routerProduct from "./product";
 
 const app = express();
 
 app.use(express.json());
 
+//Não precisa de autenticação
 app.use(routerAuth);
 
-app.use(auth, adm, routerCategory);
-app.use(auth, routerAddress);
-app.use(auth, adm, routerPromotion);
-app.use(auth, routerFavoriteProduct);
-app.use(auth, adm, routerProduct);
+//Essas rotas possuem métodos q precisam de autenticação, e também métodos que não precisam
 app.use(routerUser);
+app.use(routerProduct);
 
-
-
-
-
+//Todas essas rotas precisarão de autenticação para serem acessadas
+app.use(auth);
+app.use(routerCategory);
+app.use(routerFavoriteProduct);
+app.use(routerPromotion);
+app.use(routerAddress);
 
 export default app;
 
