@@ -9,6 +9,7 @@ import auth from '../app/middlewares/auth';
 import routerProduct from "./product";
 
 const app = express();
+
 app.use(express.json());
 
 //Não precisa de autenticação
@@ -19,11 +20,13 @@ app.use(routerProduct);
 app.use( routerAddress);
 app.use( routerPromotion);
 
+
+
 //Essas rotas possuem métodos q precisam de autenticação, e também métodos que não precisam
 app.use(routerUser);
 app.use(routerProduct);
 
-//Todas essas rotas precisarão de autenticação para serem acessada
+//Todas essas rotas precisarão de autenticação para serem acessadas
 app.use(auth);
 app.use(routerCategory);
 app.use(routerFavoriteProduct);
