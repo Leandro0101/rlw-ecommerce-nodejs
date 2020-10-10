@@ -14,6 +14,11 @@ app.use(express.json());
 //Não precisa de autenticação
 app.use(routerAuth);
 
+app.use(routerCategory);
+app.use(routerProduct);
+app.use( routerAddress);
+app.use( routerPromotion);
+
 //Essas rotas possuem métodos q precisam de autenticação, e também métodos que não precisam
 app.use(routerUser);
 app.use(routerProduct);
@@ -26,3 +31,4 @@ app.use(routerPromotion);
 app.use(routerAddress);
 
 export default app;
+
