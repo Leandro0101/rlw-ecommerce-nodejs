@@ -27,4 +27,3 @@ app.use(routerPromotion);
 app.use(routerAddress);
 
 export default app;
-

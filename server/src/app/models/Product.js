@@ -12,9 +12,13 @@ export default class Product extends Model {
         }, { sequelize })
     }
     static associate(models){
-        this.hasMany(models.Category, { foreignKey: "id_category",   as: "category" });
+        this.belongsTo(models.Category, { foreignKey: "id_category",   as: "category" });
    }
     static associate(models){
-         this.hasMany(models.Promotion, { foreignKey: "id_promotion", as: "promotion" });
+         this.belongsTo(models.Promotion, { foreignKey: "id_promotion", as: "promotion" });
     }
+    static associate(models){
+        this.belongsTo(models.Image, { foreignKey: "id",   as: "product" });
+   }
+   
 }
