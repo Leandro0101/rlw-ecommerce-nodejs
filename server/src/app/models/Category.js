@@ -9,7 +9,8 @@ export default class Category extends Model {
         }, { sequelize })
     }
     static associate(models){
-        this.belongsTo(models.Category, { foreignKey: "id",   as: "category" });
+        this.hasMany(models.Product, { foreignKey: "id_category",   as: "category" });
+       
    }
     
 }

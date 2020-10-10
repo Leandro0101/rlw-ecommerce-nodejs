@@ -4,10 +4,10 @@ import slugify from "slugify";
 import categoryValidation from "../validations/category";
 
 export default{
-    async create(req,res){
+    async store(req,res){
         const { name,description } = req.body;
 
-        const categoryExist = await  Category.findOne({where:{name}});
+        const categoryExist = await Category.findOne({ where: { name } });
 
         if(categoryExist){
             return res.status(200).json("category already exists!");
@@ -18,7 +18,7 @@ export default{
         };
 
         const category = await Category.create({name,slug:slugify(name),description});
-        return res.status(201).json(category)
+        return res.status(201).json(category);
 
     },
     async index(req,res){
@@ -40,7 +40,7 @@ export default{
             return res.status(401).json({error:'Category not found'});
         }
         const category = await categoryExists.update({ name,description,slug:slugify(name)});
-        return res.status(200).json({category})
+        return res.status(200).json({category});
     },
     async delete(req,res){
         const { id } = req.params;

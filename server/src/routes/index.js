@@ -14,9 +14,10 @@ app.use(express.json());
 
 app.use(routerAuth);
 app.use(routerCategory);
-app.use(auth, routerAddress);
-app.use(auth, adm, routerPromotion);
-app.use(auth,adm,routerProduct);
+app.use(routerProduct);
+app.use( routerAddress);
+app.use( routerPromotion);
+
 
 
 export default app;

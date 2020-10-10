@@ -10,7 +10,7 @@ class Promotion extends Model {
         }, {sequelize})   
     }
         static associate(models){
-            this.belongsTo(models.Promotion,  { foreignKey: "id_promotion",   as: "promotion" });
+            this.hasMany(models.Product,  { foreignKey: "id_promotion",   as: "promotion" });
        }
 }
 module.exports = Promotion;
