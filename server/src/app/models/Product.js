@@ -16,5 +16,6 @@ export default class Product extends Model {
    }
     static associate(models){
          this.hasMany(models.Promotion, { foreignKey: "id_promotion", as: "promotion" });
+         this.belongsToMany(models.User, { foreignKey: "product_id", through: "favorites-products-users", as: "users"  });
     }
 }
