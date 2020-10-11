@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
+import { Form, Formik, Field, ErrorMessage } from 'formik';
 
+import { Context } from '../../../../Context/AuthContext';
+import schema from './schema';
+
+import '../styles.css';
 import * as Styled from '../styles';
 import Footer from '../Footer';
-import { Context } from '../../../../Context/AuthContext';
-import { Form, Formik } from 'formik';
 
 function Register() {
   const { handleRegister } = useContext(Context);
@@ -13,23 +16,34 @@ function Register() {
       <Formik
         onSubmit={handleRegister}
         initialValues={{
-          name: '',
-          email: '',
-          password: ''
+          name: 'Werick Nalyson',
+          email: 'werick123@gmail.com',
+          password: 'teste123'
         }}
-        component={({ values, handleChange }) => (
-          <Form>
+        validationSchema={schema}
+        validateOnMount
+        component={({ values, handleChange, errors }) => (
+          <Form autoComplete="off" method="post">
             <div className="form-group">
-              <Styled.Input className="styleInput" name="name" value={values.name} onChange={handleChange} placeholder="Nome" />
+              <Field name="name" className="style-input" placeholder="Nome" />
+              <Styled.ErrorValidation>
+                <ErrorMessage name="name" />
+              </Styled.ErrorValidation>
             </div>
             <div className="form-group">
-              <Styled.Input className="styleInput" name="email" value={values.email} onChange={handleChange} placeholder="Email" />
+              <Field name="email" className="style-input" placeholder="Email" />
+              <Styled.ErrorValidation>
+                <ErrorMessage name="email" />
+              </Styled.ErrorValidation>
             </div>
             <div className="form-group">
-              <Styled.Input name="password" value={values.password} onChange={handleChange} placeholder="Senha" />
+              <Field type="password" name="password" className="style-input" placeholder="Senha" />
+              <Styled.ErrorValidation>
+                <ErrorMessage name="password" className="error-validation" />
+              </Styled.ErrorValidation>
             </div>
 
-            <Footer action="Cadastrar" />
+            <Footer action="Cadastrar" forgot="true" />
           </Form>
 
         )}

@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import routerUser from './user';
 import routerCategory from './category';
 import routerAddress from './address';
@@ -10,6 +11,7 @@ import routerProduct from "./product";
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 //Não precisa de autenticação

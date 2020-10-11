@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import * as Styled from './styles';
 
 import Header from '../../Components/Header';
