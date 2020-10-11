@@ -7,15 +7,15 @@ export default class Product extends Model {
             slug: DataTypes.STRING,
             description: DataTypes.TEXT,
             quantity: DataTypes.INTEGER,
-            price:  DataTypes.DOUBLE,
-            
+            price: DataTypes.DOUBLE,
+
         }, { sequelize })
     }
-    static associate(models){
-        this.hasMany(models.Category, { foreignKey: "id_category",   as: "category" });
-   }
-    static associate(models){
-         this.hasMany(models.Promotion, { foreignKey: "id_promotion", as: "promotion" });
-         this.belongsToMany(models.User, { foreignKey: "product_id", through: "favorites-products-users", as: "users"  });
+    static associate(models) {
+        this.belongsTo(models.Category, { foreignKey: "id_category", as: "category" });
+        this.hasMany(models.Promotion, { foreignKey: "id_promotion", as: "promotion" });
+        this.belongsToMany(models.User, { foreignKey: "product_id", through: "favorites-products-users", as: "users" });
+        this.belongsTo(models.Image, { foreignKey: "id", as: "product" });
     }
+
 }

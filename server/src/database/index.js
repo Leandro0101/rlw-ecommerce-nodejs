@@ -5,10 +5,11 @@ import Category from "../app/models/Category";
 import Address from "../app/models/Address";
 import Promotion from "../app/models/Promotion";
 import Product from "../app/models/Product";
+import Image from "../app/models/Image";
 
 const connection = new Sequelize(dbConfig);
 
-const models = [ User, Category, Address, Promotion, Product];
+const models = [ User, Category, Address, Promotion, Product,Image ];
 
 models.map(model => model.init(connection));
 models.map(model => model.associate && model.associate(connection.models));

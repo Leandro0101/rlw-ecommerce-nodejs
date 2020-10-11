@@ -26,5 +26,4 @@ app.use(routerFavoriteProduct);
 app.use(routerPromotion);
 app.use(routerAddress);
 
-export default app;
-
+export default app
