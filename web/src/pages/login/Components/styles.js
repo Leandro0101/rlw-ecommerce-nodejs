@@ -23,6 +23,10 @@ export const Button = styled.button`
   -webkit-box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
   -moz-box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
   box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
+
+  :disabled {
+    opacity: 0.5;
+  }
 `
 export const Input = styled.input`
   /* .styleInput{ */
@@ -31,5 +35,11 @@ export const Input = styled.input`
     border-radius: 0.2rem;
     padding: 5px 3px 5px 3px;
     font-family: futura, sans-serif;
-  /* } */
+    /* } */
+    `
+
+export const ErrorValidation = styled.div`
+  color: #fff;
+  font-family: futura, sans-serif;
+  margin-top: 0.4rem;
 `
