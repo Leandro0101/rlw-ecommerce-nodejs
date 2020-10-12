@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
   width: 100%;
@@ -15,20 +15,19 @@ export const Login = styled.div`
   display: flex;
   border: 1px solid var(--color-box-primary);
   border-radius: 1rem;
-  -webkit-box-shadow: 2px 2px 4px 0px rgba(9,7,73,0.59);
-  -moz-box-shadow: 2px 2px 4px 0px rgba(9,7,73,0.59);
-  box-shadow: 2px 2px 4px 0px rgba(9,7,73,0.59);
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(9, 7, 73, 0.59);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(9, 7, 73, 0.59);
+  box-shadow: 2px 2px 4px 0px rgba(9, 7, 73, 0.59);
 `
 
 export const Buttons = styled.div`
-background-color: #fff;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-right: 1.5rem;
   padding: 2rem;
-  
 `
 export const Button = styled.button`
   width: 100%;
@@ -45,9 +44,9 @@ export const Button = styled.button`
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   outline: none !important;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
-  box-shadow: 2px 2px 5px 0px rgba(9,7,73,0.59);
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(9, 7, 73, 0.59);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(9, 7, 73, 0.59);
+  box-shadow: 2px 2px 5px 0px rgba(9, 7, 73, 0.59);
 
   + Button {
     margin-top: 1.5rem;

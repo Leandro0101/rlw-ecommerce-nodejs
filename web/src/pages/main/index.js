@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
-
-import api from '../../services/api';
+import React from 'react'
 
 function Main() {
-
   // useEffect(() => {
   //   (async () => {
   //     try {
@@ -20,10 +17,10 @@ function Main() {
   // }, []);
 
   return (
-  <>
-    <h1>Página principal</h1>
-  </>
-  );
+    <>
+      <h1>Página principal</h1>
+    </>
+  )
 }
 
-export default Main;
+export default Main

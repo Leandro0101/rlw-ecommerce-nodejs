@@ -1,18 +1,17 @@
-import React, { useContext } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React, { useContext } from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-import * as Styled from '../styles';
-import schema from './schema';
-import Footer from '../Footer';
+import * as Styled from '../styles'
+import schema from './schema'
+import Footer from '../Footer'
 
-import { Context } from '../../../../Context/AuthContext';
+import { Context } from '../../../../Context/AuthContext'
 
 function SignIn() {
-  const { handleLogin } = useContext(Context);
+  const { handleLogin } = useContext(Context)
 
   return (
     <div>
-
       <Formik
         initialValues={{
           email: '',
@@ -30,7 +29,12 @@ function SignIn() {
               </Styled.ErrorValidation>
             </div>
             <div className="form-group">
-              <Field type="password" name="password" className="style-input" placeholder="Senha" />
+              <Field
+                type="password"
+                name="password"
+                className="style-input"
+                placeholder="Senha"
+              />
               <Styled.ErrorValidation>
                 <ErrorMessage name="password" className="error-validation" />
               </Styled.ErrorValidation>
@@ -38,13 +42,10 @@ function SignIn() {
 
             <Footer action="Entrar" disabled={isSubmitting} />
           </Form>
-
         )}
       />
-
-
     </div>
-  );
+  )
 }
 
-export default SignIn;
+export default SignIn
