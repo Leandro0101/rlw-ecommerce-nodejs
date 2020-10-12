@@ -1,31 +1,27 @@
-import jwt from "jsonwebtoken";
-import authConfig from '../../config/auth.json';
-import User from "../models/User";
+import jwt from 'jsonwebtoken'
+import authConfig from '../../config/auth.json'
+import User from '../models/User'
 
-function generateToken(params) {
-    return jwt.sign({ params }, authConfig.secret, { expiresIn: "48h"  });
+function generateToken (params) {
+  return jwt.sign({ params }, authConfig.secret, { expiresIn: '48h' })
 }
 
 export default {
-    async store(req, res) {
-        const user = await User.findOne({ where: { email: req.body.email } });
+  async store (req, res) {
+    const user = await User.findOne({ where: { email: req.body.email } })
 
-        if (!user)
-            return res.status(404).json({ error: "email or password incorrects" });
+    if (!user) { return res.status(404).json({ error: 'email or password incorrects' }) }
 
-        const { password } = req.body;
-        
-        const verify = await user.checkPassword(password);
+    const { password } = req.body
 
-        if (!verify)
-            return res.status(401).json({ error: "email or password incorrects" });;
+    const verify = await user.checkPassword(password)
 
-        const { id, name, email, admin } = user;
+    if (!verify) { return res.status(401).json({ error: 'email or password incorrects' }) } ;
 
-        return res.status(200).json({
-            user: { id, name, email, token: generateToken({ id, admin }) },
-        });
+    const { id, name, email, admin } = user
 
-    },
+    return res.status(200).json({
+      user: { id, name, email, token: generateToken({ id, admin }) }
+    })
+  }
 }
-

@@ -1,66 +1,63 @@
-import Promotion from "../models/Promotion";
-import promotionValidation from "../validations/promotion";
+import Promotion from '../models/Promotion'
+import promotionValidation from '../validations/promotion'
 
-export default  {
-    async index(req, res) {
-        const { page = 1 } = req.query;
+export default {
+  async index (req, res) {
+    const { page = 1 } = req.query
 
-        const promotion = await Promotion.findAll({
-            limit: 20,
-            offset: (page - 1) * 20,
-        });
+    const promotion = await Promotion.findAll({
+      limit: 20,
+      offset: (page - 1) * 20
+    })
 
-        return res.status(200).json(promotion);
+    return res.status(200).json(promotion)
+  },
+  async store (req, res) {
+    if (!(await promotionValidation.isValid(req.body))) {
+      return res.status(405).json({ error: 'Validation fails' })
+    };
 
-    },
-    async store(req, res) {
-        if (!(await promotionValidation.isValid(req.body))) {
-            return res.status(405).json({ error: 'Validation fails' });
-        };
+    const promotion = await Promotion.create(req.body)
 
-        const promotion = await Promotion.create(req.body);
+    return res.status(200).json(promotion)
+  },
+  async update (req, res) {
+    const { id } = req.params
+    const { code, rate, expire_id, limite } = req.body
 
-        return res.status(200).json(promotion);
+    if (!(await promotionValidation.isValid(req.body))) {
+      return res.status(405).json({ error: 'Validation fails' })
+    };
 
-    },
-    async update(req, res) {
-        const { id } = req.params;
-        const { code, rate, expire_id, limite } = req.body;
+    const promotionExits = await Promotion.findByPk(id)
 
-        if (!(await promotionValidation.isValid(req.body))) {
-            return res.status(405).json({ error: 'Validation fails' });
-        };
+    if (!promotionExits) {
+      return res.status(401).json({ error: 'Promotion not found' })
+    };
 
-        const promotionExits = await Promotion.findByPk(id);
+    await promotionExits.update(req.body)
 
-        if (!promotionExits) {
-            return res.status(401).json({ error: 'Promotion not found' });
-        };
+    return res.status(200).json({
+      id: Number(id),
+      code,
+      rate,
+      expire_id,
+      limite
+    })
+  },
+  async delete (req, res) {
+    const { id } = req.params
 
-        await promotionExits.update(req.body);
+    const promotion = await Promotion.findByPk(id)
 
-        return res.status(200).json({
-            id: Number(id),
-            code,
-            rate,
-            expire_id,
-            limite,
-        });
-    },
-    async delete(req, res) {
-        const { id } = req.params;
+    if (!promotion) {
+      return res.status(401).json({ error: 'Promotion not found' })
+    };
 
-        const promotion = await Promotion.findByPk(id);
+    await Promotion.destroy({
+      where: { id }
+    })
 
-        if (!promotion) {
-            return res.status(401).json({ error: 'Promotion not found' });
-        };
-
-        await Promotion.destroy({
-            where: { id },
-        });
-
-        return res.status(200).json();
-
-    },
-};
+    return res.status(200).json()
+  }
+}
