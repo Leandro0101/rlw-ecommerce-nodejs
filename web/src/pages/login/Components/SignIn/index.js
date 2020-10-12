@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Styled from '../styles';
+import schema from './schema';
 import Footer from '../Footer';
 
 import { Context } from '../../../../Context/AuthContext';
@@ -13,22 +14,31 @@ function SignIn() {
     <div>
 
       <Formik
-        onSubmit={handleLogin}
         initialValues={{
           email: '',
           password: ''
         }}
-        component={({ values, handleChange }) => (
-          <Form>
+        validationSchema={schema}
+        validateOnMount
+        onSubmit={handleLogin}
+        component={({ isSubmitting }) => (
+          <Form autoComplete="off">
             <div className="form-group">
-              <Styled.Input className="styleInput" name="email" value={values.email} onChange={handleChange} placeholder="Email" />
+              <Field name="email" className="style-input" placeholder="Email" />
+              <Styled.ErrorValidation>
+                <ErrorMessage name="email" />
+              </Styled.ErrorValidation>
             </div>
             <div className="form-group">
-              <Styled.Input name="password" value={values.password} onChange={handleChange} placeholder="Senha" />
+              <Field type="password" name="password" className="style-input" placeholder="Senha" />
+              <Styled.ErrorValidation>
+                <ErrorMessage name="password" className="error-validation" />
+              </Styled.ErrorValidation>
             </div>
 
-            <Footer action="Entrar" />
+            <Footer action="Entrar" disabled={isSubmitting} />
           </Form>
+
         )}
       />
 
