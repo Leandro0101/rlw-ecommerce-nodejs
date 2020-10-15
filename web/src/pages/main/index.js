@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
-import api from '../../services/api';
-import io from 'socket.io-client';
-const socket = io('http://localhost:3001');
+import api from '../../services/api'
+import io from 'socket.io-client'
+const socket = io('http://localhost:3001')
 
-socket.on('connect', () => console.log('conectado!'));
+socket.on('connect', () => console.log('conectado!'))
 
-function Main() {
+function Main () {
   // useEffect(() => {
   //   (async () => {
   //     try {
