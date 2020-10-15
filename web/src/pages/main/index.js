@@ -7,7 +7,6 @@ const socket = io('http://localhost:3001');
 socket.on('connect', () => console.log('conectado!'));
 
 function Main() {
-
   // useEffect(() => {
   //   (async () => {
   //     try {
@@ -24,10 +23,10 @@ function Main() {
   // }, []);
 
   return (
-  <>
-    <h1>Página principal</h1>
-  </>
-  );
+    <>
+      <h1>Página principal</h1>
+    </>
+  )
 }
 
-export default Main;
+export default Main

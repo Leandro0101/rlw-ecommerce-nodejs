@@ -1,15 +1,15 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Routes from './routes';
-import { AuthProvider } from './Context/AuthContext';
+import Routes from './routes'
+import { AuthProvider } from './Context/AuthContext'
 
-function App() {
+function App () {
   return (
     <AuthProvider>
       <Routes />
     </AuthProvider>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
+import React, { useContext } from 'react'
+import { Form, Formik, Field, ErrorMessage } from 'formik'
 
-import { Context } from '../../../../Context/AuthContext';
-import schema from './schema';
+import { Context } from '../../../../Context/AuthContext'
+import schema from './schema'
 
-import '../styles.css';
-import * as Styled from '../styles';
-import Footer from '../Footer';
+import '../styles.css'
+import * as Styled from '../styles'
+import Footer from '../Footer'
 
 function Register() {
-  const { handleRegister } = useContext(Context);
+  const { handleRegister } = useContext(Context)
 
   return (
     <div>
@@ -37,7 +37,12 @@ function Register() {
               </Styled.ErrorValidation>
             </div>
             <div className="form-group">
-              <Field type="password" name="password" className="style-input" placeholder="Senha" />
+              <Field
+                type="password"
+                name="password"
+                className="style-input"
+                placeholder="Senha"
+              />
               <Styled.ErrorValidation>
                 <ErrorMessage name="password" className="error-validation" />
               </Styled.ErrorValidation>
@@ -45,13 +50,10 @@ function Register() {
 
             <Footer action="Cadastrar" forgot="true" />
           </Form>
-
         )}
       />
-
-
     </div>
-  );
+  )
 }
 
-export default Register;
+export default Register
