@@ -21,6 +21,7 @@
     "sequelize": "^6.3.4",
     "sequelize-cli": "^6.2.0",
     "slugify": "^1.4.5",
+    "socket.io": "^2.3.0",
     "yup": "^0.29.3"
   },
   "devDependencies": {

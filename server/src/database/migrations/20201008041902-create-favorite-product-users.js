@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -32,10 +32,10 @@ module.exports = {
         allowNull: false
       }
 
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('favorites_products_users');
+    return queryInterface.dropTable('favorites_products_users')
   }
-};
+}
