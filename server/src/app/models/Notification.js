@@ -7,4 +7,8 @@ export default class Notification extends Model {
       description: DataTypes.STRING
     }, { sequelize })
   }
+
+  static asssociate (models) {
+    this.belongsToMany(models.User, { foreignKey: 'notification_id', through: 'notifications_users', as: 'notifications_users' })
+  }
 }

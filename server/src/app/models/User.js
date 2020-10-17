@@ -22,6 +22,7 @@ export default class User extends Model {
   static associate (models) {
     this.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' })
     this.belongsToMany(models.Product, { foreignKey: 'user_id', through: 'favorites_products_users', as: 'products' })
+    this.belongsToMany(models.Notification, { foreignKey: 'user_id', through: 'notifications_users', as: 'notifications' })
   }
 
   checkPassword (password) {

@@ -9,7 +9,7 @@ import routerAuth from './auth'
 import auth from '../app/middlewares/auth'
 import routerProduct from './product'
 import routerNotification from './notification'
-
+import routerUserNotification from './userNotification'
 const app = express()
 
 // app.use((req, res, next) => {
@@ -26,7 +26,7 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 // Não precisa de autenticação
-
+app.use(routerUserNotification)
 app.use(routerAuth)
 app.use(routerNotification)
 
