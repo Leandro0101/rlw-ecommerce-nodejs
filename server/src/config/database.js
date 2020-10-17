@@ -1,6 +1,6 @@
 module.exports = {
   username: 'root',
-  password: 'root',
+  password: '',
   dialect: 'mysql',
   host: 'localhost',
   timezone: '-3:00',

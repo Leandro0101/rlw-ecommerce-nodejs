@@ -14,8 +14,8 @@ export default class Product extends Model {
 
   static associate (models) {
     this.belongsTo(models.Category, { foreignKey: 'id_category', as: 'category' })
-    this.hasMany(models.Promotion, { foreignKey: 'id_promotion', as: 'promotion' })
+    this.belongsTo(models.Promotion, { foreignKey: 'id_promotion', as: 'promotion' })
     this.belongsToMany(models.User, { foreignKey: 'product_id', through: 'favorites_products_users', as: 'users' })
-    this.belongsTo(models.Image, { foreignKey: 'id', as: 'product' })
+    // this.belongsTo(models.Image, { foreignKey: "id_product",   as: "product" });
   }
 }
