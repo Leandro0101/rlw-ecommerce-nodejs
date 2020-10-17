@@ -1,4 +1,16 @@
-import express from 'express'
-import app from './routes/index'
+import app from '../src/routes/index'
+import http from 'http'
+import Socket from 'socket.io'
 import './database'
-app.listen(3006)
+const httpServer = http.createServer(app)
+const io = new Socket(httpServer)
+
+io.on('connection', (socket) => {
+  console.log('conectado')
+
+  socket.on('disconnect', () => {
+    console.log('Disconneted')
+  })
+})
+
+httpServer.listen(3001)
