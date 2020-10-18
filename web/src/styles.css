@@ -1,10 +1,11 @@
 :root {
     --color-text-base: #ffffff;
+    --color-text-base2: #f2f2f2;
     --color-background: #f2f2f2;
     --color-text-primary: #003aaf;
     --color-box-primary: #090749;
     --color-box-secoundary: #003aaf;
-  
+
     font-size: 85%;
 }
 
@@ -20,11 +21,10 @@ body {
 }
 
 body,
-imput,
+input,
 button,
 textarea {
-    font: 500 1.6rem Poppins;
-    color: var(--color-text-base);
+    font: Poppins, sans-serif;
 }
 
 .container-fluid {

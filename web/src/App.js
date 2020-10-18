@@ -4,10 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Routes from './routes'
 import { AuthProvider } from './Context/AuthContext'
 
+import Menu from './Components/Menu';
+
 function App() {
   return (
     <AuthProvider>
-      <Routes />
+      <Menu>
+        <Routes />
+      </Menu>
     </AuthProvider>
   )
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 import Header from '../../Components/Header'
 
-import about1 from '../../assets/imagens/about1.png'
-import about2 from '../../assets/imagens/about2.png'
+import about1 from '../../assets/images/about1.png'
+import about2 from '../../assets/images/about2.png'
 import './styles.css'
 
 function About() {

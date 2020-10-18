@@ -10,7 +10,7 @@ function Login() {
 
   return (
     <>
-      <Header title="Minha conta" />
+      {/* <Header title="Minha conta" /> */}
 
       <Styled.LoginContainer>
         <Styled.Login>
