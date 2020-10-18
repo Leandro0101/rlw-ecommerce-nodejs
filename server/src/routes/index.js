@@ -8,14 +8,27 @@ import routerFavoriteProduct from './FavoriteProduct'
 import routerAuth from './auth'
 import auth from '../app/middlewares/auth'
 import routerProduct from './product'
-
+import routerNotification from './notification'
+import routerUserNotification from './userNotification'
 const app = express()
 
-app.use(cors())
+// app.use((req, res, next) => {
+//   req.header('Access-Control-Allow-Origin', 'http://localhost:3000/login')
+//   app.use(cors())
+//   next()
+// })
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 // Não precisa de autenticação
+app.use(routerUserNotification)
 app.use(routerAuth)
+app.use(routerNotification)
 
 // Essas rotas possuem métodos q precisam de autenticação, e também métodos que não precisam
 app.use(routerUser)

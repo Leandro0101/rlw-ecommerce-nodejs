@@ -133,33 +133,4 @@ function Main() {
   )
 }
 
-
-
-
-
-
-
-
-
-
 export default Main
-
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       await api.get('/users/address')
-  //         .then(response => {
-  //           console.log(response.data);
-  //         });
-  //     } catch (error) {
-  //       if (error.response.status === 404) {
-  //         console.log("Nenhum endereço encontrado");
-  //       }
-  //     }
-  //   })()
-  // }, []);
-
-
-
-

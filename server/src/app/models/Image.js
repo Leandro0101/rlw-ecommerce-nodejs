@@ -9,7 +9,7 @@ export default class Image extends Model {
     }, { sequelize })
   }
 
-  static associate (models) {
-    // this.hasMany(models.Product, { foreignKey: "id_product",   as: "product" });
-  }
+  // static associate (models) {
+  //   this.hasMany(models.Product, { foreignKey: "id_product",   as: "product" });
+  // }
 }

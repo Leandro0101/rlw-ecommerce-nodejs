@@ -36,7 +36,7 @@ export default {
     const categoryExists = await Category.findByPk(id)
 
     if (!(await categoryExists)) {
-      return res.status(401).json({ error: 'Category not found' })
+      return res.status(404).json({ error: 'Category not found' })
     }
     const category = await categoryExists.update({ name, description, slug: slugify(name) })
     return res.status(200).json({ category })
@@ -47,7 +47,7 @@ export default {
     const categoryExists = await Category.findByPk(id)
 
     if (!categoryExists) {
-      return res.status(401).json({ error: 'Category not found' })
+      return res.status(404).json({ error: 'Category not found' })
     }
 
     await categoryExists.destroy({ where: id })

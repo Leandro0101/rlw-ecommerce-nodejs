@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('favorites_products_users', {
+    return queryInterface.createTable('notifications_users', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -11,17 +11,23 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE '
+        onDelete: 'CASCADE',
+        allowNull: false
       },
-      product_id: {
+      notification_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'products', key: 'id' },
+        references: { model: 'notifications', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE '
+        onDelete: 'CASCADE',
+        allowNull: false
+      },
+      states: {
+        type: Sequelize.ENUM,
+        values: ['readed', 'pending'],
+        defaultValue: 'pending',
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
@@ -36,6 +42,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('favorites_products_users')
+    return queryInterface.dropTable('notifications_users')
   }
 }

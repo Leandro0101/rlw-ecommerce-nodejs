@@ -9,6 +9,7 @@ export default {
     }
 
     const { email } = req.body
+
     const userExist = await User.findOne({ where: { email } })
 
     if (userExist) {
